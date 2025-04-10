@@ -47,11 +47,11 @@ Você deve seguir os passos para a clonagem e depois separar as pastas como dese
 1. Clone o repositório:
 
 ```bash
-git clone https://github.com/Danyel492/blog-completo.git
+git clone https://github.com/Danyel492/cms.git
 ```
 Você irá encontrar duas pastas (Back-end e Front-end), bem como uma terceira contendo alguns prints que serão exibidos ao longo deste documento.
 
-2. Abra a pasta `blog-completo/backend` e execute as linhas de comando:
+2. Abra a pasta `cms/backend` e execute as linhas de comando:
 ```bash
 npm install
 ``` 
@@ -78,7 +78,7 @@ O servidor estará rodando, por padrão, na porta 3000. Você pode acessar a API
 _|Caso queira alterar a porta, siga os passos descritos em [Instalação das Dependências](#instalação-das-dependências)_
 
 
-3. Volte e abra a pasta `blog-completo/frontend` e execute:
+3. Volte e abra a pasta `cms/frontend` e execute:
 ```bash
 npm install
 ```
@@ -120,7 +120,7 @@ Caso a porta esteja sendo usada, irá exibir a próxima porta disponível.
 
 ### Instalação das dependências
 
-1. Abra a pasta `blog-completo/backend` e execute as linhas de comando:
+1. Abra a pasta `cms/backend` e execute as linhas de comando:
 ```bash
 npm install
 ``` 
@@ -165,7 +165,7 @@ npm test
 
 ### Controles de usuários
 
-Todos os controladores das funções inerentes aos usuários estão em  `blog-completo/backend/src/controller/userControllers.js`.
+Todos os controladores das funções inerentes aos usuários estão em  `cms/backend/src/controller/userControllers.js`.
 
 1. Criar um usuário
 
@@ -191,10 +191,10 @@ Além disso, os campos `username` e `email` devem ser únicos no banco de dados 
 
 [^1]: Em atualizações futuras, implementar uma função de promoção de usuários, onde um administrador pode diretamente do front-end atualizar o status de algum usuário para administrador, alterando a propriedade `is_admin` para `true`.
 
-Essas configurações são encontradas no caminho `blog-completo/backend/src/models/user.js`
+Essas configurações são encontradas no caminho `cms/backend/src/models/user.js`
 
 Para criptografar a senha, de forma a não salvar a mesma no banco de dados com os caracteres originais que o usuário criou, foi usado o `bcrypt`. Assim como para comparar a senha salva, ainda sem deixar aparente a senha do usuário.
-Tudo isso é possível visualizar no caminho `blog-completo/backend/src/models/user.js`
+Tudo isso é possível visualizar no caminho `cms/backend/src/models/user.js`
 
 2. Autenticar um Usuário
 
@@ -209,7 +209,7 @@ curl -X POST http://localhost:3000/user/authenticate \
 }'
 ```
 
-A resposta dessa rota, além de autorizado, retorna um token que, por padrão, dura 1 hora e pode ser alterado em `blog-completo/backend/src/controllers/userController.js`. Na função `authenticate` é só encontrar a constante definida como `token` e alterar a propriedade de `expiresIn` para a quantidade de tempo que deseja que o token dure.
+A resposta dessa rota, além de autorizado, retorna um token que, por padrão, dura 1 hora e pode ser alterado em `cms/backend/src/controllers/userController.js`. Na função `authenticate` é só encontrar a constante definida como `token` e alterar a propriedade de `expiresIn` para a quantidade de tempo que deseja que o token dure.
 
 3. Listar todos os Usuários
 
